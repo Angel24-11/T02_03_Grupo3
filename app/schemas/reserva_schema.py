@@ -15,4 +15,4 @@ class ReservaOut(ReservaBase):
     estado: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
