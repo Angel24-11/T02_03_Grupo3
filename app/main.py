@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from app.config.database import engine, Base
 from app.models import hotel_models
-# Importamos tu nuevo controlador:
+# Importamos los controladores:
 from app.controllers import reserva_controller
+from app.controllers import factura_controller  # <-- NUEVO: tu módulo
 
 Base.metadata.create_all(bind=engine)
 
@@ -12,8 +13,9 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# AQUI ENCHUFAMOS TUS 4 ENDPOINTS AL SWAGGER:
+# AQUI ENCHUFAMOS LOS ENDPOINTS AL SWAGGER:
 app.include_router(reserva_controller.router)
+app.include_router(factura_controller.router)  # <-- NUEVO: tu módulo
 
 @app.get("/", tags=["Inicio"])
 def home():

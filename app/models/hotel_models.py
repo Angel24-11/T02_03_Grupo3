@@ -51,3 +51,44 @@ class Reserva(Base):
 
     cliente = relationship("Cliente")
     habitacion = relationship("Habitacion")
+
+class MetodoPago(str, enum.Enum):
+    EFECTIVO = "Efectivo"
+    TARJETA_DEBITO = "Tarjeta de Débito"
+    TARJETA_CREDITO = "Tarjeta de Crédito"
+    TRANSFERENCIA = "Transferencia"
+
+class TipoMovimiento(str, enum.Enum):
+    INGRESO = "Ingreso"
+    EGRESO = "Egreso"
+
+class Factura(Base):
+    __tablename__ = "facturas"
+    id = Column(Integer, primary_key=True, index=True)
+    reserva_id = Column(Integer, ForeignKey("reservas.id"))
+    fecha_emision = Column(DateTime, default=datetime.datetime.utcnow)
+    subtotal = Column(Float)
+    impuestos = Column(Float)
+    total = Column(Float)
+    estado = Column(String, default="Pendiente")
+
+    reserva = relationship("Reserva")
+
+class Pago(Base):
+    __tablename__ = "pagos"
+    id = Column(Integer, primary_key=True, index=True)
+    factura_id = Column(Integer, ForeignKey("facturas.id"))
+    monto = Column(Float)
+    metodo_pago = Column(Enum(MetodoPago))
+    fecha_pago = Column(DateTime, default=datetime.datetime.utcnow)
+
+    factura = relationship("Factura")
+
+class MovimientoContable(Base):
+    __tablename__ = "movimientos_contables"
+    id = Column(Integer, primary_key=True, index=True)
+    pago_id = Column(Integer, ForeignKey("pagos.id"), nullable=True)
+    tipo = Column(Enum(TipoMovimiento))
+    descripcion = Column(String)
+    monto = Column(Float)
+    fecha = Column(DateTime, default=datetime.datetime.utcnow)
