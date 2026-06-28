@@ -207,3 +207,5 @@ class TestHistorialReservas:
         estados = ["Activa", "Completada", "Cancelada"]
         assert "Activa" in estados
         assert "Desconocido" not in estados
+
+# RF02 - validaciones adicionales completadas
