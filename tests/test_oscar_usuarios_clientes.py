@@ -209,3 +209,5 @@ class TestHistorialReservas:
         assert "Desconocido" not in estados
 
 # RF02 - validaciones adicionales completadas
+
+# RF03 - historial de reservas completado
