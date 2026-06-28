@@ -1,10 +1,12 @@
-"""
+Fecha: 28/06/2026
+"
 T02.04 - Pruebas Unitarias con cobertura real
 Modulo: Usuarios y Clientes (RF01, RF02, RF03)
 Autor: Chancay Rodriguez Oscar Emilio
 Frameworks: Pytest, Unittest (MagicMock), Coverage.py
 Grupo 3 - Ingenieria de Software - UPS
-"""
+Fecha: 28/06/2026
+"
 
 import hashlib
 import pytest
@@ -20,7 +22,8 @@ from app.schemas.cliente_schema import ClienteCreate
 
 
 class TestCrearUsuario:
-    """RF01: Crear usuario con perfil de acceso"""
+    """RF01: Crear usuario con perfil de accesoFecha: 28/06/2026
+"
 
     def test_crear_usuario_persiste_en_bd(self, db):
         repo = UsuarioRepository()
@@ -70,7 +73,8 @@ class TestCrearUsuario:
 
 
 class TestListarDeshabilitarUsuario:
-    """RF01: Listar y deshabilitar usuarios"""
+    """RF01: Listar y deshabilitar usuariosFecha: 28/06/2026
+"
 
     def test_listar_usuarios_vacio(self, db):
         repo = UsuarioRepository()
@@ -115,7 +119,8 @@ class TestListarDeshabilitarUsuario:
 
 
 class TestRegistrarCliente:
-    """RF02: Registrar informacion general de huespedes"""
+    """RF02: Registrar informacion general de huespedesFecha: 28/06/2026
+"
 
     def test_crear_cliente_persiste_en_bd(self, db):
         repo = ClienteRepository()
@@ -163,7 +168,8 @@ class TestRegistrarCliente:
 
 
 class TestHistorialReservas:
-    """RF03: Mostrar historial de reservas por cliente"""
+    """RF03: Mostrar historial de reservas por clienteFecha: 28/06/2026
+"
 
     def test_historial_cliente_inexistente_retorna_none(self, db):
         repo = ClienteRepository()
