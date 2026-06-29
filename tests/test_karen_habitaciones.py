@@ -140,3 +140,5 @@ class TestDisponibilidadHabitacion:
 # RF04 - validacion de tipos y precios de habitacion
 
 # RF05 - consulta de disponibilidad en tiempo real
+
+# RF05 - filtrado por tipo de habitacion completado
