@@ -136,3 +136,5 @@ class TestDisponibilidadHabitacion:
         assert hab.id not in ids
 
 # RF04 - pruebas de habitaciones completadas por Karen Lopez
+
+# RF04 - validacion de tipos y precios de habitacion
