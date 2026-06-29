@@ -134,3 +134,5 @@ class TestDisponibilidadHabitacion:
         resultado = repo.consultar_disponibilidad(db, datetime(2026, 7, 1), datetime(2026, 7, 5))
         ids = [h.id for h in resultado]
         assert hab.id not in ids
+
+# RF04 - pruebas de habitaciones completadas por Karen Lopez
