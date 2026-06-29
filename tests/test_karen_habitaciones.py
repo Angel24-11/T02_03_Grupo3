@@ -138,3 +138,5 @@ class TestDisponibilidadHabitacion:
 # RF04 - pruebas de habitaciones completadas por Karen Lopez
 
 # RF04 - validacion de tipos y precios de habitacion
+
+# RF05 - consulta de disponibilidad en tiempo real
