@@ -1,26 +1,29 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware   
 from app.config.database import engine, Base
 from app.models import hotel_models
-# Importamos los controladores:
 from app.controllers import reserva_controller
 from app.controllers import factura_controller
 from app.controllers import reporte_controller
-from app.controllers import usuario_controller     # <-- NUEVO
-from app.controllers import cliente_controller      # <-- NUEVO
-from app.controllers import habitacion_controller   # <-- NUEVO
+from app.controllers import usuario_controller
+from app.controllers import cliente_controller
+from app.controllers import habitacion_controller
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-   from fastapi.middleware.cors import CORSMiddleware
+    title="Sistema de Gestión de Reservas de Hoteles - UPS",
+    description="Estructura estricta: Modelo -> Repositorio -> Servicio -> Controlador",
+    version="1.0.0"
+)
 
+# CORS: permite que el frontend en React consuma la API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # origen del frontend en Vite
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
 )
 
 # AQUI ENCHUFAMOS LOS ENDPOINTS AL SWAGGER:
