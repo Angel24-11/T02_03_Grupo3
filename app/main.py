@@ -12,9 +12,15 @@ from app.controllers import habitacion_controller   # <-- NUEVO
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Sistema de Gestión de Reservas de Hoteles - UPS", #
-    description="Estructura estricta: Modelo -> Repositorio -> Servicio -> Controlador", #
-    version="1.0.0"
+   from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # origen del frontend en Vite
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 )
 
 # AQUI ENCHUFAMOS LOS ENDPOINTS AL SWAGGER:
